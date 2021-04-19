@@ -52,11 +52,11 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="altrun_dbg"/>
+            <Filename Value="altrun"/>
           </Target>
           <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir);..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
-            <OtherUnitFiles Value="..\LLCL;..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
+            <IncludeFiles Value="$(ProjOutDir);..\..\..\fpcsrc\rtl\objpas;..\..\..\fpcsrc\rtl\i386;..\..\..\fpcsrc\rtl\inc;..\..\..\fpcsrc\rtl\win32;..\..\..\fpcsrc\rtl\win;..\..\..\fpcsrc\rtl\win\wininc"/>
+            <OtherUnitFiles Value="..\..\LLCL;..\..\..\fpcsrc\rtl\objpas;..\..\..\fpcsrc\rtl\i386;..\..\..\fpcsrc\rtl\inc;..\..\..\fpcsrc\rtl\win32;..\..\..\fpcsrc\rtl\win;..\..\..\fpcsrc\rtl\win\wininc"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -80,6 +80,11 @@
               <StripSymbols Value="True"/>
             </Debugging>
             <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
           </Linking>
           <Other>
             <CompilerMessages>
@@ -104,7 +109,7 @@
         <Filename Value="altrun.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos Y="3"/>
+        <CursorPos X="3" Y="3"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -118,6 +123,7 @@
       <Unit2>
         <Filename Value="AltExt.pas"/>
         <EditorIndex Value="3"/>
+        <TopLine Value="132"/>
         <CursorPos X="116" Y="162"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
@@ -132,6 +138,7 @@
       <Unit4>
         <Filename Value="AltSys.pas"/>
         <EditorIndex Value="5"/>
+        <TopLine Value="324"/>
         <CursorPos X="8" Y="28"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
@@ -139,6 +146,7 @@
       <Unit5>
         <Filename Value="AltCmd.pas"/>
         <EditorIndex Value="2"/>
+        <TopLine Value="398"/>
         <CursorPos X="10" Y="8"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
@@ -154,6 +162,7 @@
       <Unit7>
         <Filename Value="AltStream.pas"/>
         <EditorIndex Value="4"/>
+        <TopLine Value="287"/>
         <CursorPos Y="6"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>

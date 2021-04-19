@@ -1,6 +1,6 @@
 program altrun;
 {$PASCALMAINNAME wWinMainCRTStartup}
-{$define DBG}
+//{$define DBG}
 uses
   AltSys, AltExt, AltCmd, AltUnit;
 var
