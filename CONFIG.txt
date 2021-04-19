@@ -1,0 +1,3 @@
+--replace-this-resource
+--run=altrun.chm
+--maximize

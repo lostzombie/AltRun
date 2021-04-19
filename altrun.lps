@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Count="2" Active="Release">
+      <Item1 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="altrun_dbg"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetProcessor Value="80386"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+            <Optimizations>
+              <OptimizationLevel Value="4"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <DebugInfoType Value="dsDwarf2Set"/>
+              <UseExternalDbgSyms Value="True"/>
+            </Debugging>
+          </Linking>
+          <Other>
+            <CustomOptions Value="-FcUTF8
+-a5
+-ao
+-Aas
+-CX
+-g-
+-XX
+-Xs
+-Un
+-Ur
+-Os
+-O4
+-dDBG"/>
+          </Other>
+        </CompilerOptions>
+      </Item1>
+      <Item2 Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="altrun_dbg"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
+            <OtherUnitFiles Value="..\LLCL;..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <UseAnsiStrings Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <TargetProcessor Value="80386"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+            <Optimizations>
+              <OptimizationLevel Value="4"/>
+            </Optimizations>
+            <SmallerCode Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <CompilerMessages>
+              <IgnoredMessages idx5094="True" idx5093="True" idx5092="True" idx5091="True" idx5090="True" idx5089="True" idx5062="True" idx5060="True" idx5059="True" idx5058="True" idx5057="True" idx5037="True" idx5036="True" idx4105="True" idx4104="True" idx4056="True" idx4055="True" idx4046="True" idx3177="True" idx3175="True" idx2005="True"/>
+            </CompilerMessages>
+            <CustomOptions Value="-FcUTF8
+-a5
+-ao
+-CX
+-g-
+-XX
+-Xs
+-Os
+-O4
+-Ayasm"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+    </BuildModes>
+    <Units Count="51">
+      <Unit0>
+        <Filename Value="altrun.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos Y="3"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="AltUnit.pas"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="47" Y="309"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="AltExt.pas"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="116" Y="162"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="AltExe.inc"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="AltSys.pas"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="8" Y="28"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="AltCmd.pas"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="10" Y="8"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="lib\i386-win32\AltExt.s"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="372"/>
+        <CursorPos X="35" Y="378"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="AltStream.pas"/>
+        <EditorIndex Value="4"/>
+        <CursorPos Y="6"/>
+        <UsageCount Value="100"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\fpcsrc\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos X="3" Y="108"/>
+        <UsageCount Value="39"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\LLCL\Classes.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="36" Y="1321"/>
+        <UsageCount Value="2"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\LLCL\LLCLOSInt.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="553"/>
+        <CursorPos X="114" Y="578"/>
+        <UsageCount Value="9"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\LLCL\LLCLFPCInc.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos Y="13"/>
+        <UsageCount Value="10"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\struct.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6884"/>
+        <CursorPos X="6" Y="6907"/>
+        <UsageCount Value="7"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\base.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="177"/>
+        <CursorPos X="15" Y="201"/>
+        <UsageCount Value="11"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\..\fpcsrc\rtl\inc\resh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="9"/>
+        <UsageCount Value="3"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\..\fpcsrc\rtl\inc\heaph.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="6" Y="89"/>
+        <UsageCount Value="7"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\..\fpcsrc\rtl\inc\system.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1804"/>
+        <CursorPos X="41" Y="1822"/>
+        <UsageCount Value="30"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\LLCL\SysUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3054"/>
+        <CursorPos X="3" Y="3093"/>
+        <UsageCount Value="7"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\..\fpcsrc\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4"/>
+        <CursorPos X="3" Y="22"/>
+        <UsageCount Value="5"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\redef.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="21"/>
+        <UsageCount Value="7"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="..\..\fpcsrc\rtl\inc\objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="189"/>
+        <CursorPos X="23" Y="207"/>
+        <UsageCount Value="7"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="AltStream3.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="282"/>
+        <CursorPos X="3" Y="300"/>
+        <UsageCount Value="7"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="AltStream4.pas"/>
+        <UnitName Value="AltStream"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="6"/>
+        <UsageCount Value="3"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="AltWin.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="103"/>
+        <UsageCount Value="9"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\messages.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1298"/>
+        <CursorPos Y="1307"/>
+        <UsageCount Value="9"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\..\fpcsrc\rtl\inc\typshrdh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="56"/>
+        <CursorPos X="3" Y="62"/>
+        <UsageCount Value="9"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="..\..\fpcsrc\rtl\inc\fpintres.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="51" Y="24"/>
+        <UsageCount Value="23"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="LLCL__\LLCLOSInt.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1172"/>
+        <CursorPos X="11" Y="1215"/>
+        <UsageCount Value="6"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="LLCL__\SysUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2060"/>
+        <CursorPos X="37" Y="2078"/>
+        <UsageCount Value="6"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="LLCL\LLCLOSInt.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="139"/>
+        <CursorPos X="12" Y="133"/>
+        <UsageCount Value="10"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="..\..\fpcsrc\packages\rtl-objpas\src\inc\strutils.pp"/>
+        <UnitName Value="StrUtils"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1354"/>
+        <CursorPos X="21" Y="1372"/>
+        <UsageCount Value="6"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\sysutils\syshelph.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="113"/>
+        <CursorPos X="14" Y="124"/>
+        <UsageCount Value="6"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="..\..\fpcsrc\rtl\win\sysutils.pp"/>
+        <UnitName Value="SysUtils"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="181"/>
+        <CursorPos X="17" Y="211"/>
+        <UsageCount Value="5"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\types.pp"/>
+        <UnitName Value="Types"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="48"/>
+        <CursorPos X="3" Y="66"/>
+        <UsageCount Value="5"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\sysutils\sysutils.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos X="14" Y="44"/>
+        <UsageCount Value="5"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\sysutils\syshelp.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1179"/>
+        <CursorPos X="25" Y="1192"/>
+        <UsageCount Value="5"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="..\..\fpcsrc\rtl\win32\system.pp"/>
+        <UnitName Value="System"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="116"/>
+        <CursorPos X="31" Y="135"/>
+        <UsageCount Value="32"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="..\..\fpcsrc\rtl\inc\dynlibh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="41" Y="15"/>
+        <UsageCount Value="23"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\objpas.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="6" Y="20"/>
+        <UsageCount Value="23"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="..\..\fpcsrc\rtl\win32\sysinit.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="22" Y="34"/>
+        <UsageCount Value="29"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\..\fpcsrc\rtl\win\systlsdir.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8"/>
+        <CursorPos X="62" Y="19"/>
+        <UsageCount Value="24"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="D:\laz_fpc33\fpcsrc\rtl\inc\fpintres.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="4"/>
+        <UsageCount Value="13"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="D:\laz_fpc33\fpcsrc\rtl\win\winres.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="13"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="D:\laz_fpc33\fpcsrc\rtl\objpas\objpas.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="50" Y="16"/>
+        <UsageCount Value="12"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="..\..\fpcsrc\rtl\win32\sysinitpas.pp"/>
+        <UnitName Value="SysInitPas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17" Y="69"/>
+        <UsageCount Value="11"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="D:\laz_fpc_orig\fpcsrc\rtl\inc\fpintres.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="48" Y="19"/>
+        <UsageCount Value="7"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="..\..\fpcsrc\rtl\objpas\sysutils\diskh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="20"/>
+        <UsageCount Value="7"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\unifun.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos X="45" Y="50"/>
+        <UsageCount Value="11"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="..\..\fpcsrc\rtl\inc\dosh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="19" Y="114"/>
+        <UsageCount Value="10"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="..\..\fpcsrc\rtl\win\dos.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="523"/>
+        <CursorPos X="10" Y="547"/>
+        <UsageCount Value="10"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="..\..\fpcsrc\rtl\inc\ustringh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="10" Y="20"/>
+        <UsageCount Value="13"/>
+      </Unit50>
+    </Units>
+    <JumpHistory Count="29" HistoryIndex="28">
+      <Position1>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="42" Column="49" TopLine="28"/>
+      </Position1>
+      <Position2>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="47" Column="71" TopLine="28"/>
+      </Position2>
+      <Position3>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="44" Column="107" TopLine="16"/>
+      </Position3>
+      <Position4>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="450" Column="23" TopLine="417"/>
+      </Position4>
+      <Position5>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="495" Column="45" TopLine="456"/>
+      </Position5>
+      <Position6>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="43" Column="12" TopLine="19"/>
+      </Position6>
+      <Position7>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="379" Column="58" TopLine="355"/>
+      </Position7>
+      <Position8>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="488" Column="98" TopLine="464"/>
+      </Position8>
+      <Position9>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="503" Column="38" TopLine="464"/>
+      </Position9>
+      <Position10>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="506" Column="66" TopLine="479"/>
+      </Position10>
+      <Position11>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="82" Column="55" TopLine="55"/>
+      </Position11>
+      <Position12>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="81" Column="73" TopLine="57"/>
+      </Position12>
+      <Position13>
+        <Filename Value="AltSys.pas"/>
+        <Caret Line="50" Column="86" TopLine="27"/>
+      </Position13>
+      <Position14>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="150" Column="115" TopLine="91"/>
+      </Position14>
+      <Position15>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="130" Column="31" TopLine="115"/>
+      </Position15>
+      <Position16>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="132" Column="32" TopLine="115"/>
+      </Position16>
+      <Position17>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="133" Column="10" TopLine="115"/>
+      </Position17>
+      <Position18>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="131" Column="28" TopLine="115"/>
+      </Position18>
+      <Position19>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="146" Column="41" TopLine="115"/>
+      </Position19>
+      <Position20>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="150" Column="8" TopLine="115"/>
+      </Position20>
+      <Position21>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="166" Column="5" TopLine="166"/>
+      </Position21>
+      <Position22>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="88" Column="92" TopLine="55"/>
+      </Position22>
+      <Position23>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="207" Column="45" TopLine="183"/>
+      </Position23>
+      <Position24>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="88" Column="36" TopLine="62"/>
+      </Position24>
+      <Position25>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="76" Column="53" TopLine="66"/>
+      </Position25>
+      <Position26>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="43" Column="73" TopLine="27"/>
+      </Position26>
+      <Position27>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="34" Column="23" TopLine="19"/>
+      </Position27>
+      <Position28>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="38" Column="6" TopLine="19"/>
+      </Position28>
+      <Position29>
+        <Filename Value="AltCmd.pas"/>
+        <Caret Line="192" Column="54" TopLine="168"/>
+      </Position29>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1" ActiveMode="default">
+        <Mode0 Name="default"/>
+      </Modes>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
