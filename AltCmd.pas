@@ -152,6 +152,7 @@ begin
     ParamCount := ParamCount + 2;
     SetLength(ParamStr, ParamCount);
     ParamStr[ParamCount - 2] := '-o';
+    //if (CharCount(dots, o) = 1)and(Pos(dots, o) = 2)and(Pos(space, o) > 0)and(Pos(dq, o) = 0) then o:= dq+o+dq;
     ParamStr[ParamCount - 1] := o;
   end;
 end;

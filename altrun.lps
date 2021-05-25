@@ -55,8 +55,8 @@
             <Filename Value="altrun"/>
           </Target>
           <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir);..\..\..\fpcsrc\rtl\objpas;..\..\..\fpcsrc\rtl\i386;..\..\..\fpcsrc\rtl\inc;..\..\..\fpcsrc\rtl\win32;..\..\..\fpcsrc\rtl\win;..\..\..\fpcsrc\rtl\win\wininc"/>
-            <OtherUnitFiles Value="..\..\LLCL;..\..\..\fpcsrc\rtl\objpas;..\..\..\fpcsrc\rtl\i386;..\..\..\fpcsrc\rtl\inc;..\..\..\fpcsrc\rtl\win32;..\..\..\fpcsrc\rtl\win;..\..\..\fpcsrc\rtl\win\wininc"/>
+            <IncludeFiles Value="$(ProjOutDir);..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
+            <OtherUnitFiles Value="..\LLCL;..\..\fpcsrc\rtl\objpas;..\..\fpcsrc\rtl\i386;..\..\fpcsrc\rtl\inc;..\..\fpcsrc\rtl\win32;..\..\fpcsrc\rtl\win;..\..\fpcsrc\rtl\win\wininc"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -116,14 +116,13 @@
       <Unit1>
         <Filename Value="AltUnit.pas"/>
         <EditorIndex Value="6"/>
-        <CursorPos X="47" Y="309"/>
+        <CursorPos X="73" Y="279"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="AltExt.pas"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="132"/>
         <CursorPos X="116" Y="162"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
@@ -131,7 +130,8 @@
       <Unit3>
         <Filename Value="AltExe.inc"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="13"/>
+        <TopLine Value="65"/>
+        <CursorPos X="5" Y="43"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -139,15 +139,14 @@
         <Filename Value="AltSys.pas"/>
         <EditorIndex Value="5"/>
         <TopLine Value="324"/>
-        <CursorPos X="8" Y="28"/>
+        <CursorPos X="10" Y="65"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="AltCmd.pas"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="398"/>
-        <CursorPos X="10" Y="8"/>
+        <CursorPos X="7" Y="4"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -162,7 +161,6 @@
       <Unit7>
         <Filename Value="AltStream.pas"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="287"/>
         <CursorPos Y="6"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>

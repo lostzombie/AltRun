@@ -38,17 +38,22 @@
     //writeln('Pos(dq, runfile)=',Pos(dq, runfile));
     if (Pos(dots, runfile) = 2)and(Pos(space, runfile) > 0)and(Pos(dq, runfile) = 0) then runfile:= dq+runfile+dq;
     params := gp(c, s, sp + 'p', lp + 'par');
+    //writeln('params=',params);
     if params<>'' then params := WorkAltVars(params, c, s,0);
-   // writeln(params);
+    if (CharCount(dots, params) = 1)and(Pos(dots, params) = 2)and(Pos(space, params) > 0)and(Pos(dq, params) = 0) then params:= dq+params+dq;
+
+    //writeln('params=',params);
+    // writeln(params);
     //if hp(c,s,'pq','par-quote') then params:=QuotingParams(params);
    // writeln(params);
    // readln;
-    if (Pos(dots, params) = 2)and(Pos(space, params) > 0)and(Pos(dq, params) = 0) then params:= dq+params+dq;
+    if (Pos(dots, params) = 2)and(Pos(space, params) > 0)and(Pos(dq, params) = 0)and(Pos('\', params)=0) then params:= dq+params+dq;
     //if ExistsRes(c, s,create) then no_wait := False;
     dir := gp(c, s, sp + 'd', lp + 'dir');
     if dir = '' then dir := GetCurrentDir;
     dir := WorkAltVars(dir, c, s,1);
-    if (Pos(dots, dir) = 2)and(Pos(space, dir) > 0)and(Pos(dq, dir) <> 1) then dir:= dq+dir+dq;
+    //if (Pos(dots, dir) = 2)and(Pos(space, dir) > 0)and(Pos(dq, dir) <> 1) then dir:= dq+dir+dq;
+    if dir[Length(dir)]<>'\' then dir:=dir+'\';
     WorkVars(c, s, short, long);
     if hp(c, s, sp + 'nn', lp + 'no-admin') then SetEnvironmentVariable(PWideChar('__COMPAT_LAYER'), PWideChar('RUNASINVOKER'));
     if hp(c, s, 'tww', 'timeout-wait-window') then timeout_wait_window := StrToInt(gp(c, s, 'tww', 'timeout-wait-window'));
