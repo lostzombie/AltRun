@@ -1,5 +1,4 @@
 program altrun;
-{$PASCALMAINNAME wWinMainCRTStartup}
 //{$define DBG}
 uses
   AltSys, AltExt, AltCmd, AltUnit;
@@ -19,7 +18,7 @@ var
   MsgText, Caption: PWidechar;
   e, exitcode, i: longword;
   press_not_bind: boolean = False;
-//create:boolean=false;
+  //create:boolean=false;
 {$R *.res}
 
 {$INCLUDE AltExe.inc}
@@ -107,6 +106,12 @@ begin
       long := 'right-button';
     end
     else press_not_bind := True;
+  if hp(c, s, 'k', 'ignore-keys') then
+  begin
+   short:='';
+   long:='';
+   press_not_bind := False;
+  end;
   {$IFDEF DBG}
   if long<>'' then  writeln('pressed keys: ', long);
   if press_not_bind then writeln('Pressed keys, but not binded');
@@ -138,6 +143,7 @@ begin
       long := long + '-';
     end;
   end;
+
   if (short <> '') or (gp(c, s, 'r', 'run') <> '') then
   begin
     Caption := PWideChar(ExtractFileName(s[0]));

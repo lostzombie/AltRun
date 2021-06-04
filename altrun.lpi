@@ -15,8 +15,10 @@
       <Title Value="AltRun"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
       <XPManifest>
-        <ExecutionLevel Value="requireAdministrator"/>
+        <TextName Value="LostZombie.AlternativeRun.AltRun"/>
+        <TextDesc Value="Launcher based on command-line switches."/>
       </XPManifest>
       <Icon Value="0"/>
       <Resources Count="1">
@@ -30,8 +32,8 @@
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <RevisionNr Value="5"/>
-      <StringTable Comments="Launcher based on command-line switches" CompanyName="@lz57005" FileDescription="Run everything as you want" InternalName="AltRun" LegalCopyright="WTFPL V2 " OriginalFilename="altrun.exe" ProductName="Alternative Run" ProductVersion="2.1"/>
+      <RevisionNr Value="6"/>
+      <StringTable Comments="Launcher based on command-line switches" CompanyName="https://github.com/lostzombie/AltRun" FileDescription="Run everything as you want" InternalName="AltRun" LegalCopyright="WTFPL V2 " OriginalFilename="altrun.exe" ProductName="Alternative Run" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
