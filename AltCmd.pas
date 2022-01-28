@@ -88,6 +88,7 @@ begin
       Inc(i);
       if i <= Length(TmpStr2) - 1 then TmpStr3[j] := TmpStr3[j] + ' ' + TmpStr2[i];
     end;
+    if Length(TmpStr3[j])=0 then Dec(j);
     Inc(i);
     Inc(j);
   end;

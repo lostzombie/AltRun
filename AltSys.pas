@@ -298,7 +298,7 @@ begin
     Result[i] := Copy(T, 1, Pos(separator, T) - 1);
     if Result[i] = separator then Result[i] := '';
     T := StringReplace(T, Result[i] + separator, '', []);
-    if Result[i] = '' then Dec(i);
+    //if Result[i] = '' then Dec(i);
     Inc(i);
   end;
   if (Length(T) > 0) then
