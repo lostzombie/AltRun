@@ -1,4 +1,21 @@
- procedure AltExe(c: longint; s: ArrStr; const short, long: UnicodeString; var e:longword);
+function GetKeyState(nVirtKey:longint):SHORTint; stdcall; external user32 Name 'GetKeyState';
+
+function ShiftsPressed:boolean;
+var
+ Press:boolean;
+begin
+  Press:=false;
+  if GetKeyboardState(state) then
+  begin
+  if ((GetKeyState(vk_Control) and 128) <> 0) then Press:=true;
+  if ((GetKeyState(vk_Shift) and 128) <> 0) then Press:=true;
+  if ((GetKeyState(vk_Menu) and 128) <> 0) then Press:=true;
+  end;
+  Result:=Press;
+
+end;
+
+procedure AltExe(c: longint; s: ArrStr; const short, long: UnicodeString; var e:longword);
  const
   vr = 'er';
   vrr = 'envar';
@@ -24,7 +41,6 @@
     no_child: boolean = True;
     wait_child:boolean =false;
     sp, lp: UnicodeString;
-   // create:boolean=false;
 
  begin
     runfile := gp(c, s, short, long);
@@ -37,11 +53,9 @@
     if params<>'' then params := WorkAltVars(params, c, s,0);
     if (CharCount(dots, params) = 1)and(Pos(dots, params) = 2)and(Pos(space, params) > 0)and(Pos(dq, params) = 0) then params:= dq+params+dq;
     if (Pos(dots, params) = 2)and(Pos(space, params) > 0)and(Pos(dq, params) = 0)and(Pos('\', params)=0) then params:= dq+params+dq;
-    //if ExistsRes(c, s,create) then no_wait := False;
     dir := gp(c, s, sp + 'd', lp + 'dir');
     if dir = '' then dir := GetCurrentDir;
     dir := WorkAltVars(dir, c, s,1);
-    //if (Pos(dots, dir) = 2)and(Pos(space, dir) > 0)and(Pos(dq, dir) <> 1) then dir:= dq+dir+dq;
     if dir[Length(dir)]<>'\' then dir:=dir+'\';
     WorkVars(c, s, short, long);
     if hp(c, s, sp + 'nn', lp + 'no-admin') then SetEnvironmentVariable(PWideChar('__COMPAT_LAYER'), PWideChar('RUNASINVOKER'));
@@ -68,11 +82,11 @@
     begin
       fMask := $00000040;
       Wnd := GetForegroundWindow;
-      //{
       if hp(c, s, sp + 'n', lp + 'admin') then
       begin
-       // sleep(1000);//
         lpVerb :=  PWideChar(WideString('runas'));
+       if (params<>'') and ((hp(c, s, vr, vrr)) or (hp(c, s, vl, val))) then
+       begin
         if pos(dq,params)<>0 then params:='--run='+runfile+' --par='+sq+params+sq
         else
          if (pos(space,params)<>0) then
@@ -121,12 +135,11 @@
           if hp(c, s, 'r'+vl + IntToStr(i), 'run-'+val + IntToStr(i)) then params:=params+' --enval'+IntToStr(i)+'='+gp(c, s, 'r'+vl + IntToStr(i), 'run-'+val + IntToStr(i));
         end;
         runfile:=s[0];
-        //dir:=GetCurrentdir;
         hide:=false;
         Show:='';
         if (sp<>'')or(lp<>'') then  params:=params+' --ignore-keys';
+        end;
       end;
-      //}
       lpParameters := PWideChar(WideString(params));
       lpFile := PWideChar(WideString(runfile));
       lpDirectory := PWideChar(WideString(dir));
@@ -166,12 +179,52 @@
       HProcWin := 0;
       ProcID := GetProcessId(SEInfo.hProcess);
       repeat
-        sleep(100);
+        sleep(10);
         HProcWin := FindMainWindow(ProcID);
         GetExitCodeProcess(SEInfo.hProcess, ExitCode);
-        i := i + 100;
+        i := i + 10;
         if wait_child then  no_child := NoChildPresent(ProcID, childs);
       until (HProcWin > 0) or (i > timeout_wait_window) or (ExitCode <> $103);
+      if HProcWin > 0 then
+       for i:=1 to 10 do
+        begin
+        if not hide then
+        begin
+          AllowSetForegroundWindow(ProcID);
+          SetForegroundWindow(HProcWin);
+          SetActiveWindow(HProcWin);
+          SendMessage(parent_handle, 8, 0, 0);
+          SetFocus(HProcWin);
+          if Show = '' then ShowWindow(HProcWin, SW_RESTORE) else
+          begin
+            if Show = 'max' then ShowWindow(HProcWin, SW_MAXIMIZE);
+            if Show = 'min' then ShowWindow(HProcWin, SW_MINIMIZE);
+          end;
+        end
+        else
+        begin
+          ShowWindow(HProcWin, SW_MINIMIZE);
+          ShowWindow(HProcWin, SW_HIDE);
+        end;
+        sleep(10);
+        end;
+      i := 0;
+      if timeout > 0 then no_wait := False;
+      if no_wait = False then
+        if (ExitCode = $103) or wait_child then
+          repeat
+            GetExitCodeProcess(SEInfo.hProcess, ExitCode);
+            if wait_child then no_child := NoChildPresent(ProcID, childs);
+            sleep(10);
+            if timeout > 0 then i := i + 10;
+          until ((ExitCode <> $103) and no_child) or ((timeout > 0) and (i > timeout));
+
+    end;
+     i:=0;
+       repeat
+        sleep(10);
+        i := i + 10;
+       until (not ShiftsPressed) or (i>timeout_wait_window);
       if HProcWin > 0 then
         if not hide then
         begin
@@ -191,17 +244,6 @@
           ShowWindow(HProcWin, SW_MINIMIZE);
           ShowWindow(HProcWin, SW_HIDE);
         end;
-      i := 0;
-      if timeout > 0 then no_wait := False;
-      if no_wait = False then
-        if (ExitCode = $103) or wait_child then
-          repeat
-            GetExitCodeProcess(SEInfo.hProcess, ExitCode);
-            if wait_child then no_child := NoChildPresent(ProcID, childs);
-            sleep(100);
-            if timeout > 0 then i := i + 100;
-          until ((ExitCode <> $103) and no_child) or ((timeout > 0) and (i > timeout));
-    end;
     e:=ExitCode;
     SetEnvironmentVariable(PWideChar('exitcode'), PWideChar(inttostr(e)));
     if lock then BlockInput(False);
@@ -211,5 +253,4 @@
       sl := StrToInt(gp(c, s, sp + 'df', lp + 'delay-last'));
       if sl > 0 then Sleep(sl);
     end;
-    //DelRes(c, s,create);
  end;

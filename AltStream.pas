@@ -3,7 +3,6 @@ unit AltStream;
 interface
 
 uses
-  //LLCLOSInt,
   AltExt,
   AltSys;
 

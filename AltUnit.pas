@@ -3,23 +3,15 @@ unit AltUnit;
 interface
 
 uses
-  //  AltStream,
   AltSys,
-  //SySUtils,
-  //windows,
   AltCmd,
   AltExt;
 
 function FindMainWindow(process_id: longword): longword;
 function WorkAltVars(altstring: UnicodeString; c: longint; s: ArrStr; Mode: word): UnicodeString;
 procedure WorkVars(c: longint; s: ArrStr; const sp, lp: UnicodeString);
-//procedure DelRes(c: longint; s: ArrStr;var create:boolean);
-//function ExistsRes(c: longint; s: ArrStr;var create:boolean): boolean;
 function NoChildPresent(ProcessId: longword; var childs: PIDS): boolean;
 function HasProcess(target: UnicodeString; mode: longword; Name: boolean; basepath: unicodestring): boolean;
-//function GetShortPath(const LongPath: UnicodeString): UnicodeString;
-//function GetShortName(var p : String) : boolean;
-//function QuotingParams(params: UnicodeString): UnicodeString;
 
 implementation
 
@@ -91,105 +83,6 @@ begin
   end;
 end;
 
-{procedure ExtractRes(Res, OutFile: UnicodeString);
-var
-  S: TResourceStream;
-  F: TFileStream;
-begin
-  S := TResourceStream.Create(HInstance, Res, PChar(10));
-  try
-    F := TFileStream.Create(OutFile, fmCreate);
-    try
-      F.CopyFrom(S, S.Size);
-    finally
-      F.Free;
-    end;
-  finally
-    S.Free;
-  end;
-end;
-
-function ExtractPath(c: longint; s: ArrStr;var create:boolean): Unicodestring;
-var path: UnicodeString = '';
-begin
-  Result := '';
-  if hp(c, s, 'rt', res + '-temp') then Result := GetEnvVar('TEMP') + PathDelim;
-  if hp(c, s, 'rp', res + '-path') then
-  begin
-   path := gp(c, s, 'rp', res + '-path');
-   path := WorkAltVars(path, c, s, 1,create);
-   if Length(path)>0 then if path[Length(path)-1]<>PathDelim then path:=path+PathDelim;
-    Result := path;
-  if Pos(dots,Result)=0 then Result:=RelToAbs(Result,ExtractFilePath(s[0]))+PathDelim;
-  end;
-  if Result = '' then Result := GetCurrentDir;
-  if not Exists(Result) then
-  begin
-    CreateDir(Result);
-    create:=true;
-  end;
-end;
-
-function ExistsRes(c: longint; s: ArrStr; var create:boolean): boolean;
-var
-  path: unicodestring;
-
-  i: word;
-begin
-  Result := False;
-  path := ExtractPath(c, s,create);
-  for i := 0 to 9 do if hp(c, s, 'r' + IntToStr(i), res + IntToStr(i)) then if Exists(path + gp(c, s, 'r' + IntToStr(i), res + IntToStr(i))) then Result := True;
-end;
-
-procedure DelRes(c: longint; s: ArrStr; var create:boolean);
-var
-  path: unicodestring;
-  i: word;
-begin
-  path := ExtractPath(c, s,create);
-  for i := 0 to 9 do if Exists(path + gp(c, s, 'r' + IntToStr(i), res + IntToStr(i))) then DeleteFile(PWideChar(path + gp(c, s, 'r' + IntToStr(i), res + IntToStr(i))));
-  if create then RemoveDir(path);
-end;    }
-
-{function ReplaceResVars(const altstring, sv, lv, Value: UnicodeString; c: longint; s: ArrStr; mode: word;var create:boolean): UnicodeString;
-var
-  tmp, variable, localvalue: UnicodeString;
-  vars: ArrStr;
-  i, j, r: longint;
-begin
-  variable := '';
-  tmp := altstring;
-  Result := tmp;
-  variable := ExtractBetween(altstring, dots, dots);
-  while (variable <> '') or (Pos(variable, separator) <> 0) do
-  begin
-    localvalue := '';
-    if Pos(separator, variable) <> 0 then
-    begin
-      vars := split(variable, separator);
-      for i := 0 to length(vars) - 1 do
-        if ((vars[i] = sv) or (vars[i] = lv)) then
-        begin
-          r := 0;
-          for j := 0 to 9 do if (('r' + IntToStr(j) = sv) or (res + IntToStr(j) = lv)) then Inc(r);
-          if r = 0 then localvalue := localvalue + Value + separator
-          else if mode = 1 then localvalue := tmp_separator + localvalue + Value + tmp_separator else localvalue := {tmp_separator +} localvalue + Value;
-        end
-        else localvalue := localvalue + dots + vars[i] + dots;
-      if ((r > 0) and (localvalue[length(localvalue) - 1] = separator)) then setlength(localvalue, Length(localvalue) - 1);
-      if ((r > 0) and (localvalue[length(localvalue) - 1] = tmp_separator)) then setlength(localvalue, Length(localvalue) - 1);
-      SetLength(vars, 0);
-    end
-    else
-    if ((variable = sv) or (variable = lv)) then localvalue := Value else localvalue := dots + variable + dots;
-    for j := 0 to 9 do if ((('r' + IntToStr(j) = sv) or (res + IntToStr(j) = lv)) and (gp(c, s, 'r' + IntToStr(j), res + IntToStr(j)) <> '')) then ExtractRes('RES' + IntToStr(j), ExtractPath(c, s, create) + gp(c, s, 'r' + IntToStr(j), res + IntToStr(j)));
-    if Pos(dots, localvalue) <> 0 then tmp := StringReplace(tmp, dots + variable + dots, '', [rfReplaceAll, rfIgnoreCase])
-    else tmp := StringReplace(tmp, dots + variable + dots, Value, [rfReplaceAll, rfIgnoreCase]);
-    Result := StringReplace(Result, dots + variable + dots, localvalue, [rfReplaceAll, rfIgnoreCase]);
-    variable := ExtractBetween(tmp, dots, dots);
-  end;
-end;        }
-
 function ReplaceAltVars(const altstring, sv, lv, Value: UnicodeString): UnicodeString;
 var
   tmp, variable, localvalue: UnicodeString;
@@ -254,24 +147,6 @@ begin
     cmd := cmd32;
   end;
   Result := altstring;
-  {for j := 0 to 9 do
-    if hp(c,s,'r' + IntToStr(j), res + IntToStr(j)) then
-    // if (Result=':r' + IntToStr(j)+':')or(Result=':'+res + IntToStr(j)+':') then
-  begin
-     path:='';
-
-   if hp(c, s, 'rt', res + '-temp') then path := GetEnvVar('TEMP') + PathDelim;
-  if hp(c, s, 'rp', res + '-path') then
-  begin
-   path := gp(c, s, 'rp', res + '-path');
-   if Length(path)>0 then if path[Length(path)-1]<>PathDelim then path:=path+PathDelim;
-   if Pos(dots,path)=0 then path:=RelToAbs(Result,ExtractFilePath(s[0]))+PathDelim;
-  end;
-
-    Result := StringReplace(Result, ':r' + IntToStr(j)+':', path+gp(c, s, 'r' + IntToStr(j), res + IntToStr(j)), []);
-    Result := StringReplace(Result, ':'+res + IntToStr(j)+':', path+gp(c, s, 'r' + IntToStr(j), res + IntToStr(j)), []);
-  end;
-  for j := 0 to 9 do Result := ReplaceResVars(Result, 'r' + IntToStr(j), res + IntToStr(j), gp(c, s, 'r' + IntToStr(j), res + IntToStr(j)), c, s, mode,create);  }
   Result := ReplaceAltVars(Result, 'i', 'nil', '');
   Result := ReplaceAltVars(Result, 'e', 'space', ' ');
   Result := ReplaceAltVars(Result, 'q', 'quote', chr(39));
@@ -296,12 +171,7 @@ begin
   Result := ReplaceEnv(Result);
   if mode = 1 then
   begin
-{if pos(tmp_separator, Result) <> 0 then
-    begin
-      tmp := split(Result, tmp_separator);
-      Result := ExtractPath(c, s, create) + tmp[0];
-    end;      }
-    if ((Pos(dots, Result) <> 2){and(Pos(PathDelim,Result)<>0)} and (not ((Pos('*', Result) <> 0) or (Pos('?', Result) <> 0)))) then
+    if ((Pos(dots, Result) <> 2) and (not ((Pos('*', Result) <> 0) or (Pos('?', Result) <> 0)))) then
     begin
       t := RelToAbs(Result, GetCurrentDir);
       if not Exists(t) then
@@ -309,16 +179,11 @@ begin
       if Exists(t) then
         Result := t;
     end;
-    if (Pos(dots, Result) <> 2){and(Pos(PathDelim,Result)<>0)} then
+    if (Pos(dots, Result) <> 2) then
     begin
       t := RelToAbs(Result, GetCurrentDir);
       if ((Pos('*', Result) <> 0) or (Pos('?', Result) <> 0)) then
         t := AltFind(t);
-      {if not Exists(t) then
-        t := RelToAbs(Result, ExtractFilePath(s[0]));
-      if ((Pos('*', Result) <> 0) or (Pos('?', Result) <> 0)) then
-        t := AltFind(t);
-      if Exists(t) then   }
         Result := t;
     end
     else
@@ -475,100 +340,5 @@ begin
   if (mode = 1) and (Count > 0) then
     Result := True;
 end;
-
-{function QuotingParams(params: UnicodeString): UnicodeString;
-var x,y:unicodestring;
-begin
-  if Length(params) > 3 then
-  begin
-    if CharCount(dots, params) > 0 then
-    begin
-      if (CharCount(sp, params) = 0) and (CharCount(dots, params) = 1) then
-        Result := params;
-      if (CharCount(sp, params) > 0) and (CharCount(dots, params) = 1)and((params[1]<>dq)and(params[Length(params)]<>dq)) then
-        Result := dq + params + dq;
-      if (CharCount(sp, params) > 0) and (CharCount(dots, params) > 1) then
-      begin
-
-       while (CharCount(dots, params) > 1) do
-        begin
-        //  writeln('pos1:',pos(dots,params)-1);
-        //  writeln('pos2:',pos2(dots,params)-2);
-          x:=copy(params,pos(dots,params)-1,pos2(dots,params)-2);
-          if length(x)>3 then if (CharCount(sp, x) > 0) and (CharCount(dots, x) = 1)and((x[1]<>dq)and(x[Length(x)]<>dq)) then x := dq + x + dq;
-         // writeln('x: (',x,')');
-          delete(params,pos(dots,params)-1,pos2(dots,params)-1);
-         // writeln('p: (',params,')');
-          y:=y+sp+x;
-         // writeln('y: (',y,')');
-
-        end;
-        x:=copy(params,pos(dots,params)-1,length(params));
-        if length(x)>3 then if (CharCount(sp, x) > 0) and (CharCount(dots, x) = 1)and((x[1]<>dq)and(x[Length(x)]<>dq)) then x := dq + x + dq;
-         // writeln('x: (',x,')');
-          delete(params,pos(dots,params)-1,pos2(dots,params)-1);
-         // writeln('p: (',params,')');
-          y:=y+sp+x;
-         // writeln('y: (',y,')');
-       if length(y)>3 then if y[1]=sp then y:=copy(y,2,length(y));
-       result:=y;
-      end;
-    end
-    else
-      Result := params;
-  end
-  else
-    Result := params;
-end; }
-
-{function GetShortPath(const LongPath: UnicodeString): UnicodeString;
-{var
-  Len: LongWord;
-  x,y:ansistring;
-begin
-  x:=ansistring(LongPath);
-  Len := GetShortPathNameA(@x[1], nil, 0);
-  SetLength(y, Len);
-  Len := GetShortPathNameA(@x[1], @y[1], Len);
-  SetLength(y, Len);
-  Result:=UnicodeString(y); }
-var
-  aTmp: array[0..255] of Char;
-  x,y:ansistring;
-begin
-  x:=ansistring(LongPath);
- if GetShortPathNameA(@x[1], @aTmp[0], Sizeof(aTmp)) = 0 then begin
-      y:= x;
-   end
-   else begin
-      y:= StrPas (aTmp);
-   end;
-   Result:=UnicodeString(y);
-end;     }
-
-{function GetShortName(var p : String) : boolean;
-var
-  buffer   : array[0..255] of char;
-  ret : longint;
-begin
-  {we can't mess with p, because we have to return it if call is
-      unsuccesfully.}
-
-  if Length(p)>0 then                   {copy p to array of char}
-   move(p[1],buffer[0],length(p));
-  buffer[length(p)]:=chr(0);
-
-  {Should return value load loaddoserror?}
-
-  ret:=GetShortPathNameA(@buffer,@buffer,255);
-  if (Ret > 0) and (Ret <= 255) then
-   begin
-    Move (Buffer, P [1], Ret);
-    byte (P [0]) := Ret;
-    GetShortName := true;
-   end
-  else
-   GetShortName := false;
-end;        }
 
 end.

@@ -66,7 +66,6 @@
           </Parsing>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
-            <TargetProcessor Value="80386"/>
             <TargetCPU Value="i386"/>
             <TargetOS Value="win32"/>
             <Optimizations>
@@ -77,6 +76,7 @@
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
+              <DebugInfoType Value="dsDwarf2Set"/>
               <StripSymbols Value="True"/>
             </Debugging>
             <LinkSmart Value="True"/>
@@ -91,12 +91,12 @@
               <IgnoredMessages idx5094="True" idx5093="True" idx5092="True" idx5091="True" idx5090="True" idx5089="True" idx5062="True" idx5060="True" idx5059="True" idx5058="True" idx5057="True" idx5037="True" idx5036="True" idx4105="True" idx4104="True" idx4056="True" idx4055="True" idx4046="True" idx3177="True" idx3175="True" idx2005="True"/>
             </CompilerMessages>
             <CustomOptions Value="-FcUTF8
--Aas"/>
+-a5 -ao -Aas -CX -g- -XX -Xs -Un -Ur -Os -O4 -dRELEASE"/>
           </Other>
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="51">
+    <Units Count="52">
       <Unit0>
         <Filename Value="altrun.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -107,37 +107,37 @@
       </Unit0>
       <Unit1>
         <Filename Value="AltUnit.pas"/>
-        <EditorIndex Value="6"/>
-        <CursorPos X="73" Y="279"/>
+        <EditorIndex Value="8"/>
+        <CursorPos Y="6"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="AltExt.pas"/>
-        <EditorIndex Value="3"/>
-        <CursorPos X="116" Y="162"/>
+        <EditorIndex Value="5"/>
+        <CursorPos Y="145"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="AltExe.inc"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="54" Y="127"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="14" Y="8"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="AltSys.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="324"/>
-        <CursorPos X="10" Y="65"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="248"/>
+        <CursorPos Y="357"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="AltCmd.pas"/>
-        <EditorIndex Value="2"/>
-        <CursorPos X="7" Y="4"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="4" Y="178"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -151,7 +151,8 @@
       </Unit6>
       <Unit7>
         <Filename Value="AltStream.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="291"/>
         <CursorPos Y="6"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
@@ -212,8 +213,8 @@
       <Unit16>
         <Filename Value="..\..\fpcsrc\rtl\inc\system.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1804"/>
-        <CursorPos X="41" Y="1822"/>
+        <TopLine Value="105"/>
+        <CursorPos X="4" Y="178"/>
         <UsageCount Value="30"/>
       </Unit16>
       <Unit17>
@@ -322,10 +323,11 @@
       <Unit32>
         <Filename Value="..\..\fpcsrc\rtl\win\sysutils.pp"/>
         <UnitName Value="SysUtils"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="181"/>
-        <CursorPos X="17" Y="211"/>
-        <UsageCount Value="5"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="142"/>
+        <CursorPos X="2" Y="51"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
       </Unit32>
       <Unit33>
         <Filename Value="..\..\fpcsrc\rtl\objpas\types.pp"/>
@@ -372,15 +374,15 @@
       <Unit39>
         <Filename Value="..\..\fpcsrc\rtl\win32\sysinit.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="10"/>
-        <CursorPos X="22" Y="34"/>
+        <TopLine Value="18"/>
+        <CursorPos X="25" Y="34"/>
         <UsageCount Value="29"/>
       </Unit39>
       <Unit40>
         <Filename Value="..\..\fpcsrc\rtl\win\systlsdir.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="8"/>
-        <CursorPos X="62" Y="19"/>
+        <TopLine Value="16"/>
+        <CursorPos X="3" Y="32"/>
         <UsageCount Value="24"/>
       </Unit40>
       <Unit41>
@@ -446,127 +448,135 @@
         <CursorPos X="10" Y="20"/>
         <UsageCount Value="13"/>
       </Unit50>
+      <Unit51>
+        <Filename Value="..\..\fpcsrc\rtl\win\wininc\func.inc"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="469"/>
+        <CursorPos X="84" Y="490"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit51>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="AltUnit.pas"/>
-        <Caret Line="488" Column="98" TopLine="464"/>
+        <Filename Value="AltExt.pas"/>
+        <Caret Line="147" Column="3" TopLine="139"/>
       </Position1>
       <Position2>
-        <Filename Value="AltUnit.pas"/>
-        <Caret Line="503" Column="38" TopLine="464"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="213" Column="22" TopLine="192"/>
       </Position2>
       <Position3>
         <Filename Value="AltUnit.pas"/>
-        <Caret Line="506" Column="66" TopLine="479"/>
+        <Caret Line="23" Column="10" TopLine="2"/>
       </Position3>
       <Position4>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="82" Column="55" TopLine="55"/>
+        <Caret Line="213" Column="18" TopLine="192"/>
       </Position4>
       <Position5>
-        <Filename Value="AltExe.inc"/>
-        <Caret Line="81" Column="73" TopLine="57"/>
+        <Filename Value="altrun.lpr"/>
+        <Caret Line="21" Column="5"/>
       </Position5>
       <Position6>
-        <Filename Value="AltSys.pas"/>
-        <Caret Line="50" Column="86" TopLine="27"/>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="63" Column="15" TopLine="22"/>
       </Position6>
       <Position7>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="150" Column="115" TopLine="91"/>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="575" Column="16" TopLine="545"/>
       </Position7>
       <Position8>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="130" Column="31" TopLine="115"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="213" Column="31" TopLine="192"/>
       </Position8>
       <Position9>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="132" Column="32" TopLine="115"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="225" Column="11" TopLine="213"/>
       </Position9>
       <Position10>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="133" Column="10" TopLine="115"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="221" Column="54" TopLine="201"/>
       </Position10>
       <Position11>
         <Filename Value="AltCmd.pas"/>
-        <Caret Line="131" Column="28" TopLine="115"/>
+        <Caret Line="334" Column="41" TopLine="279"/>
       </Position11>
       <Position12>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="146" Column="41" TopLine="115"/>
+        <Filename Value="AltUnit.pas"/>
+        <Caret Line="6"/>
       </Position12>
       <Position13>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="150" Column="8" TopLine="115"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="233" Column="27" TopLine="207"/>
       </Position13>
       <Position14>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="166" Column="5" TopLine="166"/>
+        <Filename Value="altrun.lpr"/>
+        <Caret Line="6" Column="12"/>
       </Position14>
       <Position15>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="88" Column="92" TopLine="55"/>
+        <Caret Line="217" Column="168" TopLine="197"/>
       </Position15>
       <Position16>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="207" Column="45" TopLine="183"/>
+        <Caret Line="222" Column="18" TopLine="201"/>
       </Position16>
       <Position17>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="88" Column="36" TopLine="62"/>
+        <Caret Column="10"/>
       </Position17>
       <Position18>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="76" Column="53" TopLine="66"/>
+        <Caret Line="7" Column="12"/>
       </Position18>
       <Position19>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="43" Column="73" TopLine="27"/>
+        <Caret Line="12" Column="55" TopLine="45"/>
       </Position19>
       <Position20>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="34" Column="23" TopLine="19"/>
+        <Caret Line="7" Column="13"/>
       </Position20>
       <Position21>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="38" Column="6" TopLine="19"/>
+        <Caret Line="44" Column="22" TopLine="17"/>
       </Position21>
       <Position22>
-        <Filename Value="AltCmd.pas"/>
-        <Caret Line="192" Column="54" TopLine="168"/>
-      </Position22>
-      <Position23>
         <Filename Value="altrun.lpr"/>
         <Caret Line="2"/>
+      </Position22>
+      <Position23>
+        <Filename Value="AltExe.inc"/>
+        <Caret Line="15" Column="6"/>
       </Position23>
       <Position24>
-        <Filename Value="AltExe.inc"/>
-        <Caret Line="83" Column="48" TopLine="69"/>
+        <Filename Value="altrun.lpr"/>
+        <Caret Line="131" Column="5" TopLine="121"/>
       </Position24>
       <Position25>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="153" Column="35" TopLine="66"/>
+        <Caret Line="17" Column="53"/>
       </Position25>
       <Position26>
         <Filename Value="AltExe.inc"/>
-        <Caret Line="239" Column="6"/>
+        <Caret Line="68" Column="127"/>
       </Position26>
       <Position27>
-        <Filename Value="AltExe.inc"/>
-        <Caret Line="11" Column="30" TopLine="89"/>
+        <Filename Value="altrun.lpr"/>
+        <Caret Line="8"/>
       </Position27>
       <Position28>
-        <Filename Value="altrun.lpr"/>
-        <Caret Line="28" Column="5" TopLine="122"/>
+        <Filename Value="AltExe.inc"/>
+        <Caret Column="91"/>
       </Position28>
       <Position29>
         <Filename Value="altrun.lpr"/>
-        <Caret Line="41" Column="2" TopLine="25"/>
+        <Caret Line="8"/>
       </Position29>
       <Position30>
-        <Filename Value="AltExe.inc"/>
-        <Caret Line="186" Column="130" TopLine="172"/>
+        <Filename Value="altrun.lpr"/>
+        <Caret Line="130" Column="3"/>
       </Position30>
     </JumpHistory>
     <RunParams>

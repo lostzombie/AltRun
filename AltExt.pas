@@ -168,10 +168,6 @@ procedure BlockInput(fBlockIt: boolean); stdcall; external user32 Name 'BlockInp
 procedure Sleep(dwMilliseconds: longword); stdcall; external kernel32 Name 'Sleep';
 function GetCurrentDirectoryW(nBufferLength: longword; lpBuffer: PwideChar): longword; stdcall; external kernel32 name 'GetCurrentDirectoryW';
 function WriteFile(hFile: LongWord; const Buffer; nNumberOfBytesToWrite: LongWord; var lpNumberOfBytesWritten: LongWord; lpOverlapped: POverlapped): longbool; stdcall; external kernel32 name 'WriteFile';
-//function CreateDirectory(lpPathName: Pwidechar; lpSecurityAttributes: PSecurityAttributes): longbool; stdcall; external kernel32 name 'CreateDirectoryW';
-//function RemoveDirectory(lpPathName: Pwidechar): longbool; stdcall; external kernel32 name 'RemoveDirectoryW';
-//function GetShortPathNameW(lpszLongPath: Pwidechar; lpszShortPath:Pwidechar; cchBuffer:LongWord):LongWord; stdcall; external kernel32 name 'GetShortPathNameW';
-//function GetShortPathNameA(lpszLongPath: Pchar; lpszShortPath:Pchar; cchBuffer:LongWord):LongWord; stdcall; external kernel32 name 'GetShortPathNameA';
 
 implementation
 

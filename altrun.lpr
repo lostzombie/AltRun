@@ -1,7 +1,11 @@
 program altrun;
 //{$define DBG}
 uses
-  AltSys, AltExt, AltCmd, AltUnit;
+
+  AltSys,
+  AltExt,
+  AltCmd,
+  AltUnit;
 var
   c: longint;
   s: ArrStr;
@@ -16,9 +20,12 @@ var
   hp_else: boolean = False;
   msg: longword = 0;
   MsgText, Caption: PWidechar;
-  e, exitcode, i: longword;
+  e, exitcode: longword;
+  {$IFDEF DBG}
+  i: longword;
+  {$ENDIF}
   press_not_bind: boolean = False;
-  //create:boolean=false;
+
 {$R *.res}
 
 {$INCLUDE AltExe.inc}

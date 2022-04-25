@@ -64,8 +64,6 @@ function ExtractBetween(const Value, A, B: UnicodeString): UnicodeString;
 function StrIn(const AText: UnicodeString; const AValues: array of UnicodeString): boolean;
 function CharCount(const C: char; S: UnicodeString): longint;
 function pos2(const C: char; S: UnicodeString): longint;
-//function CreateDir(const Dir: unicodestring): boolean;
-//function RemoveDir(const Dir: unicodestring): boolean;
 
 implementation
 
@@ -174,7 +172,7 @@ var
   Len: longword;
 begin
   Len := GetCurrentDirectoryW(0, nil);
-  SetLength(Dir, Len - 1); // -1 because len is #0 inclusive
+  SetLength(Dir, Len - 1);
   GetCurrentDirectoryW(Len, PWideChar(Dir));
   Result := unicodestring(dir + pathdelim);
 end;
@@ -298,7 +296,6 @@ begin
     Result[i] := Copy(T, 1, Pos(separator, T) - 1);
     if Result[i] = separator then Result[i] := '';
     T := StringReplace(T, Result[i] + separator, '', []);
-    //if Result[i] = '' then Dec(i);
     Inc(i);
   end;
   if (Length(T) > 0) then
@@ -356,15 +353,5 @@ begin
       if count=1 then Result:=i;
     end;
 end;
-
-{function CreateDir(const Dir: unicodestring): boolean;
-begin
-   result := CreateDirectory(@Dir[1], nil);
-end;
-
-function RemoveDir(const Dir: unicodestring): boolean;
-begin
-  result := RemoveDirectory(@Dir[1]);
-end;    }
 
 end.
